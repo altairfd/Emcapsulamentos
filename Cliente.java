@@ -1,62 +1,64 @@
 package clientes;
 
-import javax.swing.JOptionPane;
 
 public class Cliente {
     private String nome;
     private String endereco;
     private String cpf;
     private int idade;
-    private boolean validaCpf;
-    
+
+
+    public boolean validaCPF(String cpf) {
+        if(cpf.length() == 11) {
+            if(cpf.equals("12345678910")) {
+                System.out.println("CPF invlaido");
+                return false;
+            }
+
+            else if (cpf.equals("11111111111")) {
+                System.out.println("CPF invalido");
+                return false;
+            }else {
+                System.out.println("CPF cadrastrado com sucesso");
+                return true;
+            }
+            
+        }
+        return true;
+    }
+
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public String getEndereco() {
-        return this.endereco;
+        return endereco;
     }
 
     public String getCpf() {
-        return this.cpf;
+        return cpf;
     }
 
     public int getIdade() {
-        return this.idade;
+        return idade;
     }
 
     public void setNome(String nome) {
-        this.nome = "";
+        this.nome = nome;
     }
 
-    public void setEndereco(String eString) {
-        this.endereco = "";
+    public void setEndereco(String endereco) {
+       this.endereco = endereco;
     }
 
     public void setCpf(String cpf) {
-        this.cpf = "";
+        this.cpf = cpf;
     }
 
     public void setIdade(int idade) {
-        this.idade = 0;
+        this.idade = idade;
     }
 
-    public void Status() {
-        System.out.println("Nome de cadrastro: " + this.nome);
-        System.out.println("Endereço de cadrastro: " + this.endereco);
-        System.out.println("CPF cadrastado: " + this.cpf);
-        System.out.println("Idade informada: " + this.idade);
-    }
-
-    public void validaCpf(boolean validaCpf) {
-        if (validaCpf == true) {
-            JOptionPane.showMessageDialog(null, "Cadrastro realizado", "Cadrastro", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if (validaCpf == false) {
-            JOptionPane.showMessageDialog(null, "CPF inválido", "Cadrastro", JOptionPane.INFORMATION_MESSAGE);
-        }
-
-    }
 }
 
 
